@@ -1,4 +1,5 @@
 # Mining $ORE Tokens on the Solana Blockchain with Ore V2 CLI
+![ore](https://github.com/user-attachments/assets/2f730257-fb18-4078-b8c2-7bccd4c8e160)
 
 This is a newbie-friendly guide to mining $ORE tokens on the Solana blockchain with Ore V2 Command Line Interface (CLI) on Linux-based operating systems (macOS, Ubuntu, Debian, etc.). Windows guide coming soon…
 
