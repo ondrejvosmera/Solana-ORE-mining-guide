@@ -74,6 +74,7 @@ Here are some of the key options you’ll need to configure:
 
 - `--rpc <NETWORK_URL>`: Paste your RPC endpoint URL here.
 - `--keypair <KEYPAIR_FILEPATH>`: Enter the path to your keypair. This typically looks like "/Users/&lt;USER&gt;/.config/solana/id.json". Replace `<USER>` with your actual username.
+-  `--dynamic-fee`: Sets fees dynamically and is capped with priority-fee command. Works only with Helius and Triton RPC.
 - `--priority-fee <AMOUNT>`: Specify the maximum priority fee you are willing to pay for each transaction. A typical value might be 50,000 microlamports, considering the conversion rate where 1 SOL = 1,000,000,000 lamports and 1 lamport = 1,000 microlamports. Adjust according to network conditions and your willingness to pay for faster transaction processing.
 - `--cores <NUMBER_OF_CORES>`: Set the number of CPU cores you want to allocate for mining. My M1 macbook has 8 cores, so I use 8.
 
@@ -82,7 +83,7 @@ Here are some of the key options you’ll need to configure:
 Compile your settings into the final command to start mining. It should look something like this:
 
 ```sh
-ore --rpc "<RPC_ENDPOINT>" --keypair "/Users/<USER>/.config/solana/id.json" --priority-fee 50000 mine --cores 8
+ore --rpc "<RPC_ENDPOINT>" --keypair "/Users/<USER>/.config/solana/id.json" --dynamic-fee --priority-fee 50000 mine --cores 8
 ```
 
 Make sure to replace <RPC_ENDPOINT>, <USER> and adjust the priority-fee and cores according to your preferences and system capabilities.
