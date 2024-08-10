@@ -3,7 +3,7 @@
 
 This is a newbie-friendly guide to mining $ORE tokens on the Solana blockchain with Ore V2 Command Line Interface (CLI) on Linux-based operating systems (macOS, Ubuntu, Debian, etc.). Windows guide coming soon…
 
-## Installation
+## Linux-based systems (macOS)
 
 ### 1. Open Terminal
 
@@ -24,7 +24,21 @@ Run the following command to install the Solana CLI:
 ```sh
 sh -c "$(curl -sSfL https://release.solana.com/v1.18.4/install)"
 ```
-### 4. Import Your Wallet
+To update to the newest version, run this command:
+
+```sh
+solana-install update
+```
+
+### 4. Add Solana to your PATH
+
+To ensure you can run Solana commands from any terminal session, add the following line to your shell configuration file. Replace <USER> with your own username. (If you don’t know yours, run command echo $USER).
+
+```sh
+export PATH="Users/<USER>/.local/share/solana/install/active_release/bin:$PATH"
+```
+
+### 5. Import Your Wallet
 
 To import your wallet, run this command (ensure you have atleast 0.05 SOL inside):
 
@@ -49,10 +63,65 @@ Install the Ore CLI with the following command:
 ```sh
 cargo install ore-cli
 ```
+Restart your terminal before you start mining.
 
-### 7. Mining Setup
+## Windows
 
-#### Setting Up RPC Endpoint
+### 1. Install Rust and Cargo
+
+Go to https://www.rust-lang.org/tools/install and download Rust (to find out if you have 32bit or 64bit system — Start button -> Settings -> System -> About). Run the .exe, when prompted type “1” press Enter. You may be prompted to install Visual Studio C++ Build tools, which is necessary, so install it aswell.
+
+### 2. Install Solana CLI
+Open CMD as an administrator (Search -> type “cmd.exe”, right click and choose “Run as administrator”), and run this command:
+
+```sh
+cmd /c "curl https://release.solana.com/v1.18.18/solana-install-init-x86_64-pc-windows-msvc.exe --output C:\solana-install-tmp\solana-install-init.exe --create-dirs"
+```
+
+Next, run this command. If you see security pop-up, select to allow the program to run:
+
+```sh
+C:\solana-install-tmp\solana-install-init.exe v1.18.18
+```
+
+After this you will need to close your terminal and open it again (as administrator).
+
+For updating to latest version, run:
+
+```sh
+solana-install update
+```
+
+### 3. Import your wallet
+To import your wallet, run this command (ensure you have atleast 0.05 SOL inside):
+
+```sh
+solana-keygen recover prompt:?key=0/0 — outfile %USERPROFILE%\.config\solana\id.json
+```
+
+This command will prompt you to enter your seed phrase. You can find this phrase in your Phantom app under Settings -> click your wallet at the top -> Show secret recovery phrase. Type in the 12 words, press Enter, and follow the prompts to confirm.
+
+Recovered pubkey should and needs match your wallet address you see in Phantom.
+
+You can always check the pubkey with this command:
+
+```sh
+solana-keygen pubkey
+```
+
+### 4. Install Ore CLI
+Install the Ore CLI with the following command (you will also use this command to update your CLI):
+
+```sh
+cargo install ore-cli
+```
+
+Restart your terminal again, before you start mining.
+
+
+## Mining Setup
+
+### 1. Setting Up RPC Endpoint
 
 To optimize your mining efficiency, you will need to set up an RPC endpoint. There are multiple providers to choose from, such as Helius, Alchemy, or Triton.
 
@@ -63,7 +132,7 @@ For this tutorial, we will use Alchemy:
 3. Click on "Endpoints" on the right.
 4. Locate Solana and copy the URL - this is your RPC endpoint.
 
-#### Configuring the Mining
+### 2. Configuring the Mining
 
 You need to configure several options for mining. This command displays all available commands and options for the ORE CLI.
 
@@ -78,7 +147,7 @@ Here are some of the key options you’ll need to configure:
 - `--priority-fee <AMOUNT>`: Specify the maximum priority fee you are willing to pay for each transaction. A typical value might be 50,000 microlamports, considering the conversion rate where 1 SOL = 1,000,000,000 lamports and 1 lamport = 1,000 microlamports. Adjust according to network conditions and your willingness to pay for faster transaction processing.
 - `--cores <NUMBER_OF_CORES>`: Set the number of CPU cores you want to allocate for mining. My M1 macbook has 8 cores, so I use 8.
 
-### Final Command
+### 3. Final Command
 
 Compile your settings into the final command to start mining. It should look something like this:
 
