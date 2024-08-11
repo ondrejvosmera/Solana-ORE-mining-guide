@@ -125,12 +125,11 @@ Restart your terminal again, before you start mining.
 
 To optimize your mining efficiency, you will need to set up an RPC endpoint. There are multiple providers to choose from, such as Helius, Alchemy, or Triton.
 
-For this tutorial, we will use Alchemy:
+For this tutorial we will use Helius:
 
-1. Visit [Alchemy](https://www.alchemy.com/solana) and create a FREE plan profile.
-2. Once you are in the Dashboard, select "Apps" from the menu.
-3. Click on "Endpoints" on the right.
-4. Locate Solana and copy the URL - this is your RPC endpoint.
+1. Go to [Helius](https://www.helius.dev/), click on “Start for free” and sign up.
+2. Once you are in the Dashboard choose “RPCs” in the menu.
+3. Here, under Mainnet is your RPC URL.
 
 ### 2. Configuring the Mining
 
